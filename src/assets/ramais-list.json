@@ -1,0 +1,67 @@
+{
+    "values": [
+        {
+            "id": "1",
+            "name": "Ricardo - TI",
+            "number": "6099",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        },
+        {
+            "id": "2",
+            "name": "Rafaela - Recepção",
+            "number": "6001",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        },
+        {
+            "id": "3",
+            "name": "Renata - ADM",
+            "number": "6002",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        },
+        {
+            "id": "4",
+            "name": "Douglas - RH",
+            "number": "6003",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        },
+        {
+            "id": "5",
+            "name": "Feipe - Financeiro",
+            "number": "6004",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        },
+        {
+            "id": "6",
+            "name": "6005",
+            "number": "6005",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        },
+        {
+            "id": "7",
+            "name": "6006",
+            "number": "6006",
+            "contextPermission": "DDI",
+            "captureGroup": "1",
+            "departament": "TI",
+            "paused": "não"
+        }
+    ]
+}
