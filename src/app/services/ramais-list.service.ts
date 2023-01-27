@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 import { RamaisList } from '../model/ramais-list';
 
 @Injectable({
@@ -14,6 +14,8 @@ export class RamaisListService {
 
   getRamaisList() {
     return this.httpClient.get<RamaisList[]>(this.API).pipe(
+      first(),
+      delay(5000),
       tap(ramaisList => console.log(ramaisList)),
     );
   }
