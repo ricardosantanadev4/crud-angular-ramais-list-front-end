@@ -31,7 +31,7 @@ export class RamaisListComponent {
     });
   }
 
-  // no lugar de colocar ['ramais-list/new'], usa-se ['new'], { relativeTo: this.route } por boa pratica, com isso se o nome da rota mudar a alteracao so sera feita em lugar um lugar so facitando a manutencao do codigo
+  // no lugar de colocar ['ramais-list/new'], usa-se ['new'], { relativeTo: this.route } por que se um dia mudar o nome no path que direciona para o modulo em app-routing.module.ts a rota vai continuar funcionando
   onAdd() {
     console.log('onAdd');
     this.router.navigate(['new'], { relativeTo: this.route })
