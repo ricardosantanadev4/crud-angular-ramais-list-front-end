@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { RamaisList } from 'src/app/model/ramais-list';
 import { RamaisListService } from 'src/app/services/ramais-list.service';
@@ -16,7 +16,7 @@ export class RamaisListComponent {
   $dataSource: Observable<RamaisList[]>;
   displayedColumns = ['id', 'name', 'number', 'contextPermission', 'captureGroup', 'departament', 'paused', 'actions'];
 
-  constructor(private ramaisList: RamaisListService, public dialog: MatDialog, private router: Router) {
+  constructor(private ramaisList: RamaisListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
     this.$dataSource = ramaisList.getRamaisList().pipe(
       catchError(error => {
         this.openDialog('Erro ao tentar carregar recursos.')
@@ -31,9 +31,10 @@ export class RamaisListComponent {
     });
   }
 
+  // no lugar de colocar ['ramais-list/new'], usa-se ['new'], { relativeTo: this.route } por boa pratica, com isso se o nome da rota mudar a alteracao so sera feita em lugar um lugar so facitando a manutencao do codigo
   onAdd() {
     console.log('onAdd');
-    this.router.navigate(['ramais-list/new'])
+    this.router.navigate(['new'], { relativeTo: this.route })
   }
 
 }
