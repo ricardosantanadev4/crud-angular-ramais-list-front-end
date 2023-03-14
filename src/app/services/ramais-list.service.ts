@@ -8,8 +8,8 @@ import { RamaisList } from '../model/ramais-list';
 })
 export class RamaisListService {
   // ramaisList: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
-  private readonly API = 'http://localhost:3000/values';
-  // private readonly API = '/api/ramais-list';
+  // private readonly API = 'http://localhost:3000/values';
+  private readonly API = '/api/ramais-list';
   constructor(private httpClient: HttpClient) { }
 
   getRamaisList() {
