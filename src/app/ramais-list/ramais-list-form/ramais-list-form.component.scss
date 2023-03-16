@@ -1,0 +1,27 @@
+// largura do card
+mat-card {
+    width: 80%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+// largura do formulario
+.min-width {
+    width: 100%;
+    min-width: 150px;
+}
+
+// largura dos inputs 
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-cancel {
+    margin-left: 20px;
+}

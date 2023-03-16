@@ -1,1 +1,38 @@
-<p>ramais-list-form works!</p>
+<mat-card>
+    <mat-card-content>
+        <mat-toolbar color="primary">
+            <span>Ramal</span>
+        </mat-toolbar>
+        <!--  <form> tag utilizada em formularios -->
+        <form [formGroup]="form" class="min-width">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Número</mat-label>
+                <input matInput formControlName="number">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Permissão de Contexto</mat-label>
+                <input matInput formControlName="contextPermission">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Grupo de captura</mat-label>
+                <input matInput formControlName="captureGroup">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Departamento</mat-label>
+                <input matInput formControlName="departament">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onSubmit()">SALVAR</button>
+        <button mat-raised-button (click)="onCancel()" class="button-cancel">CANCELAR</button>
+    </mat-card-actions>
+</mat-card>
