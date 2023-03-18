@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { RamaisList } from 'src/app/model/ramais-list';
+import { RamaisListService } from 'src/app/services/ramais-list.service';
 
 @Component({
   selector: 'app-ramais-list-form',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class RamaisListFormComponent {
   form: FormGroup;
 
-  constructor(private formbuider: FormBuilder) {
+  constructor(private formbuider: FormBuilder, private ramaisListService: RamaisListService) {
     this.form = this.formbuider.group({
       name: [null],
       number: [null],
@@ -20,10 +22,12 @@ export class RamaisListFormComponent {
   }
 
   onSubmit() {
-    console.log('onSubmit');
+    // console.log(this.form.value);
+    this.ramaisListService.save(this.form.value)
   }
 
   onCancel() {
     console.log('onCancel');
   }
+
 }

@@ -17,20 +17,33 @@
 
             <mat-form-field>
                 <mat-label>Permissão de Contexto</mat-label>
-                <input matInput formControlName="contextPermission">
+                <mat-select formControlName="contextPermission">
+                    <mat-option value="DDD">DDD (DDD)</mat-option>
+                    <mat-option value="DDD_CEL_EXT">DDD_CEL_EXT (DDD_CEL_EXT)</mat-option>
+                    <mat-option value="DDD_CEL_LOC">DDD_CEL_LOC (DDD_CEL_LOC)</mat-option>
+                    <mat-option value="DDI">DDI</mat-option>
+                    <mat-option value="INTERNO">INTERNO (INTERNO)</mat-option>
+                    <mat-option value="LOCAL">LOCAL (LOCAL)</mat-option>
+                    <mat-option value="LOCAL_CEL">LOCAL_CEL (LOCAL_CEL)</mat-option>
+                </mat-select>
             </mat-form-field>
 
             <mat-form-field>
-                <mat-label>Grupo de captura</mat-label>
+                <mat-label>Grupo de Captura</mat-label>
                 <input matInput formControlName="captureGroup">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Departamento</mat-label>
-                <input matInput formControlName="departament">
+                <mat-select formControlName="departament">
+                    <mat-option value="RH">RH</mat-option>
+                    <mat-option value="ATENDIMENTO">ATENDIMENTO</mat-option>
+                    <mat-option value="TI">TI</mat-option>
+                </mat-select>
             </mat-form-field>
         </form>
     </mat-card-content>
+
     <mat-card-actions>
         <button mat-raised-button color="primary" (click)="onSubmit()">SALVAR</button>
         <button mat-raised-button (click)="onCancel()" class="button-cancel">CANCELAR</button>

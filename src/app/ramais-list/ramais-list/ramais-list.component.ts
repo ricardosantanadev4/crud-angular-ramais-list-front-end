@@ -17,7 +17,7 @@ export class RamaisListComponent {
   displayedColumns = ['id', 'name', 'number', 'contextPermission', 'captureGroup', 'departament', 'paused', 'actions'];
 
   constructor(private ramaisList: RamaisListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
-    this.$dataSource = ramaisList.getRamaisList().pipe(
+    this.$dataSource = ramaisList.list().pipe(
       catchError(error => {
         this.openDialog('Erro ao tentar carregar recursos.')
         return of([]);

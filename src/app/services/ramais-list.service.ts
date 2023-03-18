@@ -12,11 +12,16 @@ export class RamaisListService {
   private readonly API = '/api/ramais-list';
   constructor(private httpClient: HttpClient) { }
 
-  getRamaisList() {
+  list() {
     return this.httpClient.get<RamaisList[]>(this.API).pipe(
       first(),
       delay(2000),
       tap(ramaisList => console.log(ramaisList)),
     );
+  }
+
+  save(record: RamaisList) {
+    // necessario se inscrever no observable para poder funcionar .subscrib()
+    return this.httpClient.post(this.API, record).subscribe(data => console.log(data));
   }
 }
