@@ -20,8 +20,7 @@ export class RamaisListService {
     );
   }
 
-  save(record: RamaisList) {
-    // necessario se inscrever no observable para poder funcionar .subscrib()
-    return this.httpClient.post(this.API, record).subscribe(data => console.log(data));
+  save(record: Partial<RamaisList>) {
+    return this.httpClient.post<RamaisList>(this.API, record);
   }
 }
