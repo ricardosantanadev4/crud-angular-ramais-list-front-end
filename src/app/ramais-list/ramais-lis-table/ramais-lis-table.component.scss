@@ -1,0 +1,14 @@
+mat-table {
+    // vai caucular automaticamente os espaço na tela
+    overflow: auto;
+    // se passar do tamanho maximo vai ser adicionado o scroll
+    max-height: 600px;
+}
+
+.action-column-header {
+    flex: 0 0 126px;
+}
+
+.actions-column {
+    flex: 0 0 126px;
+}

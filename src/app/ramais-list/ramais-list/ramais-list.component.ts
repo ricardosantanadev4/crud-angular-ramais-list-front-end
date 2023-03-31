@@ -14,7 +14,6 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 export class RamaisListComponent {
   // dataSource: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
   $dataSource: Observable<RamaisList[]>;
-  displayedColumns = ['id', 'name', 'number', 'contextPermission', 'captureGroup', 'departament', 'paused', 'actions'];
 
   constructor(private ramaisList: RamaisListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
     this.$dataSource = ramaisList.list().pipe(

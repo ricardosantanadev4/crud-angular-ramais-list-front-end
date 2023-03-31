@@ -1,0 +1,67 @@
+<mat-table [dataSource]="ramaisListTable">
+
+    <!--- Note that these columns can be defined in any order.
+      The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- codigo Column -->
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- number Column -->
+    <ng-container matColumnDef="number">
+        <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.number}} </mat-cell>
+    </ng-container>
+
+    <!-- contextPermission Column -->
+    <ng-container matColumnDef="contextPermission">
+        <mat-header-cell *matHeaderCellDef> Perm. Contexto </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.contextPermission}} </mat-cell>
+    </ng-container>
+
+    <!-- captureGroup Column -->
+    <ng-container matColumnDef="captureGroup">
+        <mat-header-cell *matHeaderCellDef> Grupo de Captura </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.captureGroup}} </mat-cell>
+    </ng-container>
+
+    <!-- departament Column -->
+    <ng-container matColumnDef="departament">
+        <mat-header-cell *matHeaderCellDef> Departamento </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.departament}} </mat-cell>
+    </ng-container>
+
+    <!-- paused Column -->
+    <ng-container matColumnDef="paused">
+        <mat-header-cell *matHeaderCellDef> Pausado? </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.paused}} </mat-cell>
+    </ng-container>
+
+    <!-- action Column -->
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="action-column-header">
+            <button mat-mini-fab color="primary" aria-label="Adicionar ramais" (click)="onAdd()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="actions-column">
+            <button mat-icon-button color="primary" aria-label="Editar ramais">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Deletar ramais">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
