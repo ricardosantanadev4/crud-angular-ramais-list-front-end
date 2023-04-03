@@ -48,7 +48,7 @@
     <!-- action Column -->
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef class="action-column-header">
-            <button mat-mini-fab color="primary" aria-label="Adicionar ramais" (click)="onAdd()">
+            <button mat-mini-fab color="primary" aria-label="Adicionar ramais" (click)="listTable()">
                 <mat-icon>add</mat-icon>
             </button>
         </mat-header-cell>
@@ -56,6 +56,7 @@
             <button mat-icon-button color="primary" aria-label="Editar ramais">
                 <mat-icon>edit</mat-icon>
             </button>
+
             <button mat-icon-button color="warn" aria-label="Deletar ramais">
                 <mat-icon>delete</mat-icon>
             </button>

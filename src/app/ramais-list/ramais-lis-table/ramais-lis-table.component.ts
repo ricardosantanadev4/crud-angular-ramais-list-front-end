@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RamaisList } from 'src/app/model/ramais-list';
 
 @Component({
@@ -8,14 +7,14 @@ import { RamaisList } from 'src/app/model/ramais-list';
   styleUrls: ['./ramais-lis-table.component.scss']
 })
 export class RamaisLisTableComponent {
-  @Input() ramaisListTable: RamaisList[] = []
+  @Input() ramaisListTable: RamaisList[] = [];
+  @Output() eventRamaisList = new EventEmitter(false);
   displayedColumns = ['id', 'name', 'number', 'contextPermission', 'captureGroup', 'departament', 'paused', 'actions'];
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor() { }
 
-  // no lugar de colocar ['ramais-list/new'], usa-se ['new'], { relativeTo: this.route } por que se um dia mudar o nome no path que direciona para o modulo em app-routing.module.ts a rota vai continuar funcionando
-  onAdd() {
-    console.log('onAdd');
-    this.router.navigate(['new'], { relativeTo: this.route })
+  listTable() {
+    console.log('onAddRamaisListTable');
+    this.eventRamaisList.emit(true);
   }
 }

@@ -34,7 +34,6 @@ export class RamaisListFormComponent {
 
   onSubmit() {
     // this.form.value
-    // necessario se inscrever no observable para poder funcionar .subscrib()
     this.ramaisListService.save(this.form.value).subscribe({ next: data => this.onSucess('Ramal salvo com sucesso!'), error: error => this.onError('Erro ao salvar ramal.') });
   }
 
