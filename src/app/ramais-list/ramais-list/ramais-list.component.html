@@ -3,7 +3,7 @@
         <mat-toolbar color="primary">
             <span>Ramal</span>
         </mat-toolbar>
-        <div class="mat-elevation-z8">
+        <div classe="column-flex" class="mat-elevation-z8">
             <app-ramais-lis-table *ngIf="$dataSource | async as ramaisList; else elseBlock"
                 [ramaisListTable]="ramaisList" (eventRamaisList)="addList()"></app-ramais-lis-table>
             <ng-template #elseBlock>

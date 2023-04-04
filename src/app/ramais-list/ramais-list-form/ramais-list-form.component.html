@@ -1,51 +1,51 @@
 <mat-card>
     <mat-card-content>
         <mat-toolbar color="primary">
-            <span>Ramal</span>
+            <span> Ramal </span>
         </mat-toolbar>
         <!--  <form> tag utilizada em formularios -->
         <form [formGroup]="form" class="min-width">
             <mat-form-field>
-                <mat-label>Nome</mat-label>
+                <mat-label> Nome </mat-label>
                 <input matInput formControlName="name">
             </mat-form-field>
 
             <mat-form-field>
-                <mat-label>Número</mat-label>
+                <mat-label> Número </mat-label>
                 <input matInput formControlName="number">
             </mat-form-field>
 
             <mat-form-field>
-                <mat-label>Permissão de Contexto</mat-label>
+                <mat-label> Permissão de Contexto </mat-label>
                 <mat-select formControlName="contextPermission">
-                    <mat-option value="DDD">DDD (DDD)</mat-option>
-                    <mat-option value="DDD_CEL_EXT">DDD_CEL_EXT (DDD_CEL_EXT)</mat-option>
-                    <mat-option value="DDD_CEL_LOC">DDD_CEL_LOC (DDD_CEL_LOC)</mat-option>
-                    <mat-option value="DDI">DDI (DDI)</mat-option>
-                    <mat-option value="INTERNO">INTERNO (INTERNO)</mat-option>
-                    <mat-option value="LOCAL">LOCAL (LOCAL)</mat-option>
-                    <mat-option value="LOCAL_CEL">LOCAL_CEL (LOCAL_CEL)</mat-option>
+                    <mat-option value="DDD"> DDD (DDD) </mat-option>
+                    <mat-option value="DDD_CEL_EXT"> DDD_CEL_EXT (DDD_CEL_EXT) </mat-option>
+                    <mat-option value="DDD_CEL_LOC"> DDD_CEL_LOC (DDD_CEL_LOC) </mat-option>
+                    <mat-option value="DDI"> DDI (DDI) </mat-option>
+                    <mat-option value="INTERNO"> INTERNO (INTERNO) </mat-option>
+                    <mat-option value="LOCAL"> LOCAL (LOCAL) </mat-option>
+                    <mat-option value="LOCAL_CEL"> LOCAL_CEL (LOCAL_CEL) </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field>
-                <mat-label>Grupo de Captura</mat-label>
+                <mat-label> Grupo de Captura </mat-label>
                 <input matInput formControlName="captureGroup">
             </mat-form-field>
 
             <mat-form-field>
-                <mat-label>Departamento</mat-label>
+                <mat-label> Departamento </mat-label>
                 <mat-select formControlName="departament">
-                    <mat-option value="RH">RH</mat-option>
-                    <mat-option value="ATENDIMENTO">ATENDIMENTO</mat-option>
-                    <mat-option value="TI">TI</mat-option>
+                    <mat-option value="RH"> RH </mat-option>
+                    <mat-option value="ATENDIMENTO"> ATENDIMENTO </mat-option>
+                    <mat-option value="TI"> TI </mat-option>
                 </mat-select>
             </mat-form-field>
         </form>
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onSubmit()">SALVAR</button>
-        <button mat-raised-button (click)="onCancel()" class="button-cancel">CANCELAR</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()"> SALVAR </button>
+        <button mat-raised-button (click)="onCancel()" class="button-cancel"> CANCELAR </button>
     </mat-card-actions>
 </mat-card>
