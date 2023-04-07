@@ -48,12 +48,12 @@
     <!-- action Column -->
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef class="action-column-header">
-            <button mat-mini-fab color="primary" aria-label="Adicionar ramais" (click)="listTable()">
+            <button mat-mini-fab color="primary" aria-label="Adicionar ramais" (click)="addListTable()">
                 <mat-icon>add</mat-icon>
             </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element" class="actions-column">
-            <button mat-icon-button color="primary" aria-label="Editar ramais">
+            <button mat-icon-button color="primary" aria-label="Editar ramais" (click)="editListTable(element)">
                 <mat-icon>edit</mat-icon>
             </button>
 

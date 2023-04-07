@@ -8,13 +8,20 @@ import { RamaisList } from 'src/app/model/ramais-list';
 })
 export class RamaisLisTableComponent {
   @Input() ramaisListTable: RamaisList[] = [];
-  @Output() eventRamaisList = new EventEmitter(false);
+  @Output() eventAddRamaisList = new EventEmitter(false);
+  @Output() eventEditRamaisList = new EventEmitter(false);
   displayedColumns = ['id', 'name', 'number', 'contextPermission', 'captureGroup', 'departament', 'paused', 'actions'];
 
   constructor() { }
 
-  listTable() {
+  addListTable() {
     console.log('onAddRamaisListTable');
-    this.eventRamaisList.emit(true);
+    this.eventAddRamaisList.emit(true);
   }
+
+  editListTable(element: RamaisList) {
+    console.log('editListTable');
+    this.eventEditRamaisList.emit(element);
+  }
+
 }

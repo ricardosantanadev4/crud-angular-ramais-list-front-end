@@ -5,7 +5,8 @@
         </mat-toolbar>
         <div classe="column-flex" class="mat-elevation-z8">
             <app-ramais-lis-table *ngIf="$dataSource | async as ramaisList; else elseBlock"
-                [ramaisListTable]="ramaisList" (eventRamaisList)="addList()"></app-ramais-lis-table>
+                [ramaisListTable]="ramaisList" (eventAddRamaisList)="addList()"
+                (eventEditRamaisList)="editList($event)"></app-ramais-lis-table>
             <ng-template #elseBlock>
                 <div class="loading-spinner">
                     <mat-spinner></mat-spinner>

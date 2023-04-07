@@ -5,7 +5,8 @@ import { RamaisListComponent } from './ramais-list/ramais-list.component';
 
 const routes: Routes = [
   { path: '', component: RamaisListComponent },
-  { path: 'new', component: RamaisListFormComponent }
+  { path: 'new', component: RamaisListFormComponent },
+  { path: 'edit/:id', component: RamaisListFormComponent }
 ];
 
 @NgModule({
