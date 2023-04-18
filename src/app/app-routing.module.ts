@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'ramais-list' },
-  { path: 'ramais-list', loadChildren: () => import('../app/ramais-list/ramais-list.module').then(m => m.RamaisListModule) }
+  { path: 'ramais-list', loadChildren: () => import('./ramais/ramais.module').then(m => m.RamaisListModule) }
 ];
 
 @NgModule({

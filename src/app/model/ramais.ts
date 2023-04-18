@@ -1,4 +1,4 @@
-export interface RamaisList {
+export interface Ramais {
     id: string;
     name: string;
     number: string;

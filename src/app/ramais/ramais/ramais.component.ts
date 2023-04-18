@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of, tap } from 'rxjs';
-import { RamaisList } from 'src/app/model/ramais-list';
+import { Ramais } from 'src/app/model/ramais';
 import { RamaisListService } from 'src/app/services/ramais-list.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 @Component({
-  selector: 'app-ramais-list',
-  templateUrl: './ramais-list.component.html',
-  styleUrls: ['./ramais-list.component.scss']
+  selector: 'app-ramais',
+  templateUrl: './ramais.component.html',
+  styleUrls: ['./ramais.component.scss']
 })
 export class RamaisListComponent {
   // dataSource: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
-  $dataSource: Observable<RamaisList[]>;
+  $dataSource: Observable<Ramais[]>;
 
   constructor(private ramaisList: RamaisListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
     this.$dataSource = ramaisList.list().pipe(
@@ -36,7 +36,7 @@ export class RamaisListComponent {
     this.router.navigate(['new'], { relativeTo: this.route })
   }
 
-  editList(element: RamaisList) {
+  editList(element: Ramais) {
     console.log('editList');
     console.log(element);
     this.router.navigate(['edit', element.id], { relativeTo: this.route });

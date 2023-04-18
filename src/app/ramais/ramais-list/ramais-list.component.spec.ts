@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RamaisLisTableComponent } from './ramais-lis-table.component';
+import { RamaisLisTableComponent } from './ramais-list.component';
 
 describe('RamaisLisTableComponent', () => {
   let component: RamaisLisTableComponent;

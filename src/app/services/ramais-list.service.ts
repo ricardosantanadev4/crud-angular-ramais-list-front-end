@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, first, tap } from 'rxjs';
-import { RamaisList } from '../model/ramais-list';
+import { Ramais } from '../model/ramais';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,14 @@ export class RamaisListService {
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<RamaisList[]>(this.API).pipe(
+    return this.httpClient.get<Ramais[]>(this.API).pipe(
       first(),
       delay(2000),
       tap(ramaisList => console.log(ramaisList)),
     );
   }
 
-  save(record: Partial<RamaisList>) {
-    return this.httpClient.post<RamaisList>(this.API, record);
+  save(record: Partial<Ramais>) {
+    return this.httpClient.post<Ramais>(this.API, record);
   }
 }
