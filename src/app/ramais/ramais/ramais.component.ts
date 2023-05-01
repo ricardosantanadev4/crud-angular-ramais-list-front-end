@@ -36,8 +36,8 @@ export class RamaisListComponent {
     this.router.navigate(['new'], { relativeTo: this.route })
   }
 
-  edit(element: Ramais) {
-    console.log('edit');
+  editRamais(element: Ramais) {
+    console.log('editRamais');
     console.log(element);
     this.router.navigate(['edit', element.id], { relativeTo: this.route });
   }

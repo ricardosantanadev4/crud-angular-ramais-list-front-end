@@ -22,9 +22,6 @@ export class RamaisListFormComponent {
     departament: ['']
   });
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-
   constructor(private formbuider: NonNullableFormBuilder, private ramaisService: RamaisService
     , private _snackBar: MatSnackBar, private location: Location, private route: ActivatedRoute) {
 
@@ -51,7 +48,12 @@ export class RamaisListFormComponent {
 
   onSubmit() {
     // this.form.value
-    this.ramaisService.save(this.form.value).subscribe({ next: data => this.onSucess('Ramal salvo com sucesso!'), error: error => this.onError('Erro ao salvar ramal.') });
+    console.log('onSubmit');
+    this.ramaisService.save(this.form.value)
+      .subscribe({
+        next: () => this.onSucess('Ramal salvo com sucesso!'),
+        error: () => this.onError('Erro ao salvar ramal.')
+      });
   }
 
   onCancel() {
@@ -62,17 +64,26 @@ export class RamaisListFormComponent {
   onSucess(message: string) {
     this._snackBar.open(message, '', {
       duration: 3000,
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
     });
     this.onCancel();
   }
 
   onError(message: string) {
+    // this._snackBar.open(message, '', {
+    //   duration: 3000,
+    //   horizontalPosition: this.horizontalPosition,
+    //   verticalPosition: this.verticalPosition,
+    // });
+  }
+
+  onSnackBar(message: string) {
+    console.log('onSnackBar');
     this._snackBar.open(message, '', {
       duration: 3000,
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
     });
   }
 }

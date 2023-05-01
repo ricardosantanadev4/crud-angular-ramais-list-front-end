@@ -20,13 +20,13 @@ export class RamaisResolver implements Resolve<Ramais> {
     }
     return of(
       {
-        id: ''
-        , name: ''
-        , number: ''
-        , contextPermission: ''
-        , captureGroup: ''
-        , departament: ''
-        , paused: ''
+        id: '', 
+        name: '', 
+        number: '', 
+        contextPermission: '', 
+        captureGroup: '', 
+        departament: '', 
+        paused: ''
       });
   }
 }
