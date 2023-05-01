@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Ramais } from 'src/app/model/ramais';
-import { RamaisListService } from 'src/app/services/ramais-list.service';
+import { RamaisService } from 'src/app/services/ramais.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 @Component({
@@ -15,7 +15,7 @@ export class RamaisListComponent {
   // dataSource: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
   $dataSource: Observable<Ramais[]>;
 
-  constructor(private ramaisList: RamaisListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
+  constructor(private ramaisList: RamaisService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
     this.$dataSource = ramaisList.list().pipe(
       catchError(error => {
         this.openDialog('Erro ao tentar carregar recursos.')
@@ -36,10 +36,9 @@ export class RamaisListComponent {
     this.router.navigate(['new'], { relativeTo: this.route })
   }
 
-  editList(element: Ramais) {
-    console.log('editList');
+  edit(element: Ramais) {
+    console.log('edit');
     console.log(element);
     this.router.navigate(['edit', element.id], { relativeTo: this.route });
   }
-
 }

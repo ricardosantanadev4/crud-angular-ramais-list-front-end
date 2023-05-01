@@ -2,7 +2,9 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { RamaisListService } from 'src/app/services/ramais-list.service';
+import { ActivatedRoute } from '@angular/router';
+import { Ramais } from 'src/app/model/ramais';
+import { RamaisService } from 'src/app/services/ramais.service';
 
 @Component({
   selector: 'app-ramais-list-form',
@@ -12,6 +14,7 @@ import { RamaisListService } from 'src/app/services/ramais-list.service';
 export class RamaisListFormComponent {
   // form: FormGroup;
   form = this.formbuider.group({
+    id: [''],
     name: [''],
     number: [''],
     contextPermission: [''],
@@ -22,7 +25,9 @@ export class RamaisListFormComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private formbuider: NonNullableFormBuilder, private ramaisListService: RamaisListService, private _snackBar: MatSnackBar, private location: Location) {
+  constructor(private formbuider: NonNullableFormBuilder, private ramaisService: RamaisService
+    , private _snackBar: MatSnackBar, private location: Location, private route: ActivatedRoute) {
+
     // this.form = this.formbuider.group({
     //   name: [null],
     //   number: [null],
@@ -30,11 +35,23 @@ export class RamaisListFormComponent {
     //   captureGroup: [null],
     //   departament: [null]
     // })
+
+    const ramais: Ramais = this.route.snapshot.data['ramais'];
+    console.log(ramais);
+    this.form.setValue(
+      {
+        id: ramais.id,
+        name: ramais.name,
+        number: ramais.number,
+        contextPermission: ramais.contextPermission,
+        captureGroup: ramais.captureGroup,
+        departament: ramais.departament,
+      })
   }
 
   onSubmit() {
     // this.form.value
-    this.ramaisListService.save(this.form.value).subscribe({ next: data => this.onSucess('Ramal salvo com sucesso!'), error: error => this.onError('Erro ao salvar ramal.') });
+    this.ramaisService.save(this.form.value).subscribe({ next: data => this.onSucess('Ramal salvo com sucesso!'), error: error => this.onError('Erro ao salvar ramal.') });
   }
 
   onCancel() {

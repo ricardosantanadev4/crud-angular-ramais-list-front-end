@@ -6,7 +6,7 @@ import { Ramais } from '../model/ramais';
 @Injectable({
   providedIn: 'root'
 })
-export class RamaisListService {
+export class RamaisService {
   // ramaisList: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
   // private readonly API = 'http://localhost:3000/values';
   private readonly API = '/api/ramais-list';
@@ -22,5 +22,9 @@ export class RamaisListService {
 
   save(record: Partial<Ramais>) {
     return this.httpClient.post<Ramais>(this.API, record);
+  }
+
+  getById(id: string) {
+    return this.httpClient.get<Ramais>(`${this.API}/${id}`);
   }
 }
