@@ -24,6 +24,10 @@ export class RamaisService {
     return this.httpClient.post<Ramais>(this.API, record);
   }
 
+  update(record: Partial<Ramais>){
+    return this.httpClient.put<Ramais>(`${this.API}/${record.id}`, record);
+  }
+
   getById(id: string) {
     return this.httpClient.get<Ramais>(`${this.API}/${id}`);
   }

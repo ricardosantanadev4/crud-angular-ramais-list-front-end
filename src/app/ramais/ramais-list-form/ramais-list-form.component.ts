@@ -49,7 +49,14 @@ export class RamaisListFormComponent {
   onSubmit() {
     // this.form.value
     console.log('onSubmit');
-    this.ramaisService.save(this.form.value)
+    if (this.form.value) {
+      this.ramaisService.update(this.form.value)
+        .subscribe({
+          next: () => this.onSucess('Ramal Editado com sucesso!'),
+          error: () => this.onError('Erro ao editar ramal.')
+        });
+    }
+    return this.ramaisService.save(this.form.value)
       .subscribe({
         next: () => this.onSucess('Ramal salvo com sucesso!'),
         error: () => this.onError('Erro ao salvar ramal.')
@@ -62,20 +69,12 @@ export class RamaisListFormComponent {
   }
 
   onSucess(message: string) {
-    this._snackBar.open(message, '', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    });
+    this.onSnackBar(message);
     this.onCancel();
   }
 
   onError(message: string) {
-    // this._snackBar.open(message, '', {
-    //   duration: 3000,
-    //   horizontalPosition: this.horizontalPosition,
-    //   verticalPosition: this.verticalPosition,
-    // });
+    this.onSnackBar(message);
   }
 
   onSnackBar(message: string) {
