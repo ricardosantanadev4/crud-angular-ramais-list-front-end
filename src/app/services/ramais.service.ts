@@ -21,6 +21,13 @@ export class RamaisService {
   }
 
   save(record: Partial<Ramais>) {
+    if(record.id){
+      return this.update(record);
+    }
+    return this.create(record);
+  }
+
+  create(record: Partial<Ramais>){
     return this.httpClient.post<Ramais>(this.API, record);
   }
 

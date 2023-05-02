@@ -23,4 +23,8 @@ export class RamaisLisTableComponent {
     console.log('editList');
     this.eventEditRamaisList.emit(element);
   }
+
+  deleteList(){
+    console.log('deleteList');
+  }
 }

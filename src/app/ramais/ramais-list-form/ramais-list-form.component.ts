@@ -50,9 +50,9 @@ export class RamaisListFormComponent {
     // this.form.value
     console.log('onSubmit');
     if (this.form.value.id) {
-      return this.ramaisService.update(this.form.value)
+      return this.ramaisService.save(this.form.value)
         .subscribe({
-          next: () => this.onSucess('Ramal Editado com sucesso!'),
+          next: () => this.onSucess('Ramal editado com sucesso!'),
           error: () => this.onError('Erro ao editar ramal.')
         });
     }
