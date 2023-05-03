@@ -10,6 +10,7 @@ export class RamaisService {
   // ramaisList: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
   // private readonly API = 'http://localhost:3000/values';
   private readonly API = '/api/ramais-list';
+
   constructor(private httpClient: HttpClient) { }
 
   list() {
@@ -21,17 +22,17 @@ export class RamaisService {
   }
 
   save(record: Partial<Ramais>) {
-    if(record.id){
+    if (record.id) {
       return this.update(record);
     }
     return this.create(record);
   }
 
-  create(record: Partial<Ramais>){
+  create(record: Partial<Ramais>) {
     return this.httpClient.post<Ramais>(this.API, record);
   }
 
-  update(record: Partial<Ramais>){
+  update(record: Partial<Ramais>) {
     return this.httpClient.put<Ramais>(`${this.API}/${record.id}`, record);
   }
 
@@ -39,7 +40,7 @@ export class RamaisService {
     return this.httpClient.get<Ramais>(`${this.API}/${id}`);
   }
 
-  delete(id: String){
+  delete(id: String) {
     console.log('delete');
     return this.httpClient.delete<void>(`${this.API}/${id}`);
   }
