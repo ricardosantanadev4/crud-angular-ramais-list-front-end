@@ -38,4 +38,9 @@ export class RamaisService {
   getById(id: string) {
     return this.httpClient.get<Ramais>(`${this.API}/${id}`);
   }
+
+  delete(id: String){
+    console.log('delete');
+    return this.httpClient.delete<void>(`${this.API}/${id}`);
+  }
 }

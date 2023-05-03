@@ -10,6 +10,7 @@ export class RamaisLisTableComponent {
   @Input() ramaisListTable: Ramais[] = [];
   @Output() eventAddRamaisList = new EventEmitter(false);
   @Output() eventEditRamaisList = new EventEmitter(false);
+  @Output() eventDeleteRamaisList = new EventEmitter(false);
   displayedColumns = ['id', 'name', 'number', 'contextPermission', 'captureGroup', 'departament', 'paused', 'actions'];
 
   constructor() { }
@@ -24,7 +25,8 @@ export class RamaisLisTableComponent {
     this.eventEditRamaisList.emit(element);
   }
 
-  deleteList(){
-    console.log('deleteList');
+  deleteRamaisList(element: Ramais) {
+    console.log('deleteRamaisList');
+    this.eventDeleteRamaisList.emit(element);
   }
 }

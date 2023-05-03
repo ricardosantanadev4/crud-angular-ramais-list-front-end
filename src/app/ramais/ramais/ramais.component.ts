@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Ramais } from 'src/app/model/ramais';
 import { RamaisService } from 'src/app/services/ramais.service';
+import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 @Component({
@@ -13,18 +14,24 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 })
 export class RamaisListComponent {
   // dataSource: RamaisList[] = [{ name: 'Ricardo - TI', number: '6099', contextPermission: 'DDI', captureGroup: '1', departament: 'TI', paused: 'não' }];
-  $dataSource: Observable<Ramais[]>;
+  $dataSource: Observable<Ramais[]> | null = null;
 
-  constructor(private ramaisList: RamaisService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
-    this.$dataSource = ramaisList.list().pipe(
-      catchError(error => {
-        this.openDialog('Erro ao tentar carregar recursos.')
+  constructor(private ramaisService: RamaisService, public dialog: MatDialog, private router: Router,
+    private route: ActivatedRoute) {
+    this.refresh();
+  }
+
+  refresh() {
+    console.log('refresh');
+    this.$dataSource = this.ramaisService.list().pipe(
+      catchError(() => {
+        this.onError('Erro ao tentar carregar recursos.')
         return of([]);
       })
     )
   }
 
-  openDialog(errorMsg: string) {
+  onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg,
     });
@@ -41,4 +48,21 @@ export class RamaisListComponent {
     console.log(element);
     this.router.navigate(['edit', element.id], { relativeTo: this.route });
   }
+
+  deleteRamais(event: Ramais) {
+    console.log('deleteRamais');
+    console.log(event.id);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja excluir esse ramal?',
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (result: boolean) => {
+        if (result) {
+          this.ramaisService.delete(event.id).subscribe({ next: () => this.refresh() });
+        }
+      }
+    });
+  }
+
 }
