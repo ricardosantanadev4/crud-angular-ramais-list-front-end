@@ -2,6 +2,8 @@
     <mat-card-content>
         <mat-toolbar color="primary">
             <span>Ramal</span>
+            <span class="example-spacer"></span>
+            <app-search></app-search>
         </mat-toolbar>
         <div classe="column-flex" class="mat-elevation-z8">
             <app-ramais-list *ngIf="$dataSource | async as ramaisList; else elseBlock" [ramaisListTable]="ramaisList"

@@ -7,13 +7,15 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { RamaisListFormComponent } from './ramais-list-form/ramais-list-form.component';
 import { RamaisLisTableComponent } from './ramais-list/ramais-list.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
   declarations: [
     RamaisListComponent,
     RamaisListFormComponent,
-    RamaisLisTableComponent
+    RamaisLisTableComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
