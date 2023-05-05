@@ -1,7 +1,7 @@
-<mat-form-field>
+<mat-form-field [formGroup]="formSearch">
     <mat-label style="color: white;">Ramal:</mat-label>
-    <input matInput [(ngModel)]="value" style="color: white;">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <input matInput style="color: white;" formControlName="ramal">
+    <button *ngIf="formSearch.value.ramal" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
         <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>

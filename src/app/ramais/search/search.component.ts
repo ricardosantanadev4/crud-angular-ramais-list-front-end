@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  value = '';
+
+  formSearch = this.formBuilder.group({
+    ramal: ['']
+  })
+
+  constructor(private formBuilder: NonNullableFormBuilder) { }
+
+  clearField() {
+    this.formSearch.setValue({ ramal: '' });
+  }
 }
