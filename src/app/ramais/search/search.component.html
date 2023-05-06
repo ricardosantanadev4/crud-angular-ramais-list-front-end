@@ -1,7 +1,20 @@
-<mat-form-field [formGroup]="formSearch">
+<button mat-icon-button aria-label="Limpar campo de pesquiza" (click)="refreshForm()">
+    <mat-icon>cleaning_services</mat-icon>
+</button>
+
+<button mat-icon-button aria-label="Pesquizar ramal">
+    <mat-icon>search</mat-icon>
+</button>
+
+<button mat-icon-button aria-label="Recarregar ramais">
+    <mat-icon>refresh</mat-icon>
+</button>
+
+<mat-form-field>
     <mat-label style="color: white;">Ramal:</mat-label>
-    <input matInput style="color: white;" formControlName="ramal">
-    <button *ngIf="formSearch.value.ramal" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
+    <input matInput style="color: white;" [formControl]="formSearch">
+    <mat-error *ngIf="formSearch.invalid">{{getErrorMessage()}}</mat-error>
+    <button *ngIf="formSearch.value" matSuffix mat-icon-button aria-label="Clear" (click)="refreshForm()">
         <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>
